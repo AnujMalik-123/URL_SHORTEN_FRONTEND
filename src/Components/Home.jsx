@@ -5,15 +5,16 @@ export default function Home() {
   const [url, setUrl] = useState("");
   const [shortId, setShortId] = useState("");
 
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
-  console.log("BASE_URL:", BASE_URL);
+  const BACKEND_URL = import.meta.env.BACKEND_URL;
+  // const FRONTEND_URL = import.meta.env.FRONTEND_URL;
+
   const handleGenerate = async (e) => {
     e.preventDefault();
 
     if (!url.trim()) return alert("Please enter a URL");
 
     try {
-      const response = await axios.post(`${BASE_URL}/generate`, { url });
+      const response = await axios.post(`${BACKEND_URL}/generate`, { url });
       setShortId(response.data.shortId);
       if (response.data.message) {
         alert(response.data.message);
@@ -25,7 +26,7 @@ export default function Home() {
   };
 
   // Displayed short URL for user
-  const fullShortUrl = shortId ? `${BASE_URL}/${shortId}` : "";
+  const fullShortUrl = shortId ? `${BACKEND_URL}/${shortId}` : "";
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -83,7 +84,7 @@ export default function Home() {
                 onClick={async () => {
                   try {
                     // Call backend API to get original URL
-                    const res = await axios.get(`${BASE_URL}/${shortId}`, {
+                    const res = await axios.get(`${BACKEND_URL}/${shortId}`, {
                       headers: { Accept: "application/json" }, // tell backend we want JSON
                     });
 

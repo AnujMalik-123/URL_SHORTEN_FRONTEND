@@ -7,17 +7,17 @@ export default function ClickedAndLastClicked() {
   const [clicks, setClicks] = useState(null);
   const [lastClicked, setLastClicked] = useState(null);
 
-  const BASE_URL = import.meta.env.VITE_BASE_URL; // your backend base URL
+  const BACKEND_URL = import.meta.env.BACKEND_URL; // your backend base URL
 
   const handleFetchStats = async () => {
     if (!shortId.trim()) return alert("Please enter a Short URL code");
 
     try {
       // Fetch number of clicks
-      const clicksRes = await axios.get(`${BASE_URL}/clicks/${shortId}`);
+      const clicksRes = await axios.get(`${BACKEND_URL}/clicks/${shortId}`);
       // Fetch last clicked time
       const lastClickedRes = await axios.get(
-        `${BASE_URL}/last-clicked/${shortId}`
+        `${BACKEND_URL}/last-clicked/${shortId}`
       );
 
       setClicks(clicksRes.data.clicks);
