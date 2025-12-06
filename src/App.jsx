@@ -1,6 +1,7 @@
 import React from "react";
-import Home from "./component/Home"; // <-- Import from components folder
-import ClickedAndLastClicked from "./component/ClickedAndLastClicked";
+// <-- Import from components folder
+import ClickedAndLastClicked from "./Components/ClickedAndLastClicked.jsx";
+import Home from "./Components/Home.jsx";
 
 function App() {
   return (
