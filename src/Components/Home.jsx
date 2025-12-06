@@ -5,7 +5,8 @@ export default function Home() {
   const [url, setUrl] = useState("");
   const [shortId, setShortId] = useState("");
 
-  const BACKEND_URL = import.meta.env.BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  console.log("BACKEND_URL:", BACKEND_URL);
   // const FRONTEND_URL = import.meta.env.FRONTEND_URL;
 
   const handleGenerate = async (e) => {
