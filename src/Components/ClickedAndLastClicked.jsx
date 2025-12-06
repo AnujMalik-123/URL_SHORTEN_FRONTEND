@@ -7,7 +7,7 @@ export default function ClickedAndLastClicked() {
   const [clicks, setClicks] = useState(null);
   const [lastClicked, setLastClicked] = useState(null);
 
-  const BACKEND_URL = import.meta.env.BACKEND_URL; // your backend base URL
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL; // your backend base URL
 
   const handleFetchStats = async () => {
     if (!shortId.trim()) return alert("Please enter a Short URL code");
